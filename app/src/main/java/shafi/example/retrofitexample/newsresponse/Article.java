@@ -4,7 +4,9 @@ package shafi.example.retrofitexample.newsresponse;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Article {
+import java.io.Serializable;
+
+public class Article implements Serializable {
 
     @SerializedName("source")
     @Expose

@@ -1,11 +1,12 @@
 package shafi.example.retrofitexample;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.util.Log;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -15,12 +16,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import shafi.example.retrofitexample.newsresponse.Article;
-import shafi.example.retrofitexample.newsresponse.NewsAdapter;
 import shafi.example.retrofitexample.newsresponse.NewsApiService;
 import shafi.example.retrofitexample.newsresponse.NewsResponse;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String BASE_URL = "https://newsapi.org";
+    public static final String BASE_URL = "https://newsapi.org/";
     private static final String TAG = "Retrofit call";
     private RecyclerView recyclerView;
     private NewsAdapter newsAdapter;
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         recyclerView = findViewById(R.id.newsRecyclerView);
         linearLayoutManager = new LinearLayoutManager(this);
         Retrofit retrofit = new Retrofit.Builder()
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,""+articles.size(),Toast.LENGTH_LONG).show();
 
                 }else{
-
+                    //
                 }
             }
 
